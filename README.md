@@ -3,10 +3,6 @@
 A robust Client-Server application written in **C** that performs mathematical calculations using **Inter-Process Communication (IPC)** mechanisms.
 The project demonstrates advanced OS concepts such as Signal Handling, Process Management (`fork`, `exec`), and File I/O.
 
-## 👥 Authors
-* **Stav Macri**
-* **Nadav Swartz**
-
 ## 🛠️ How it Works
 The system consists of two main components:
 1.  **Server:** Runs in the background, waits for signals, reads requests from a shared file, performs calculations, and signals the result back.
@@ -30,3 +26,27 @@ You need a GCC compiler (Linux/WSL).
 ```bash
 gcc server.c -o server.out
 gcc client.c -o client.out
+```
+### 2. Run the Server
+First, start the server in the background:
+```bash
+./server.out &
+```
+Note the PID (Process ID) of the server, you will need it.
+
+### 3. Run the Client
+Format: ./client.out [Server_PID] [Num1] [Num2] [Operation]
+
+ * Operations: 1 (+), 2 (-), 3 (*), 4 (/)
+
+### Example:
+
+```bash
+./client.out 1234 10 5 1
+# Output: Result is: 15
+```
+
+## 📂 Project Structure
+ * server.c: The main server logic and signal handlers.
+ * client.c: The client interface for sending requests.
+ * Project_Report.pdf: Detailed documentation and execution screenshots.
